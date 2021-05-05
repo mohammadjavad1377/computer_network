@@ -1,4 +1,4 @@
-[In reply to 𝑹𝑬𝒁𝑨]
+
 import platform
 import subprocess
 import threading
