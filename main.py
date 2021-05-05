@@ -1,23 +1,20 @@
-import argparse
-import socket
+[In reply to 𝑹𝑬𝒁𝑨]
+import platform
+import subprocess
+import threading
 
+def ping(host):
+    param = '-n' if platform.system().lower() == 'windows' else '-c'
+    command = ['ping', param, '1', host]
+    print (subprocess.call(command) == 0)
 
-def scan_ports(host, start_port, end_port):
-    # Create socket
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    num = input (" please number of sites")
+    my_list = []
+    for I in range(0, num)
+        j = input(" please addres of site", i)
+        my_list.append(j)
 
-    # Get IP of remote host
-    remote_ip = socket.gethostbyname(host)
-
-    # Scan ports
-    end_port += 1
-    for port in range(start_port, end_port):
-        try:
-            sock.connect((remote_ip, port))
-            print('Port ' + str(port) + ' is open')
-            sock.close()
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        except socket.error:
-            pass
-
-
+    for k in range(0, num)
+        x = threading.Thread(target=ping, args=(my_list[k],))
+        x.start()
+        x.join()
